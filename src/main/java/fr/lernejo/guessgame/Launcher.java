@@ -1,15 +1,18 @@
 package fr.lernejo.guessgame;
 
+import fr.lernejo.logger.Logger;
+import fr.lernejo.logger.LoggerFactory;
+
 import java.security.SecureRandom;
 
 public class Launcher {
+    private static final Logger logger = LoggerFactory.getLogger("launcher");
 
     public static void main(String[] args) {
         try {
             if (args[0].equals("-interactive")) {
                 Player player = new HumanPlayer();
                 Simulation game = new Simulation(player);
-
                 SecureRandom random = new SecureRandom();
                 long randomNumber = random.nextInt(100); 
 
@@ -19,7 +22,6 @@ public class Launcher {
             } else if (args[0].equals("-auto")) {
                 Player player = new ComputerPlayer();
                 Simulation game = new Simulation(player);
-
                 SecureRandom random = new SecureRandom();
                 long randomNumber = random.nextInt(100); 
 
