@@ -16,13 +16,13 @@ public class HumanPlayer implements Player {
         boolean retry;
 
         do {
-            logger.log("What's your next guess? ");
+            logger.log("Quelle est ta prochaine hypothèse ?");
             userInput = scanner.nextLine();
             try {
                 guess = Long.parseLong(userInput);
                 retry = false;
             } catch (Exception e) {
-                logger.log("Please enter a number.");
+                logger.log("Mettre un nombre ");
                 retry = true;
             }
         } while (retry);
@@ -32,7 +32,7 @@ public class HumanPlayer implements Player {
 
     @Override
     public void respond(boolean lowerOrGreater) {
-        if (!lowerOrGreater) logger.log("The number is lower.");
-        else logger.log("The number is higher.");
+        if (!lowerOrGreater) logger.log("C'est moins ");
+        else logger.log("C'est plus ");
     }
 }

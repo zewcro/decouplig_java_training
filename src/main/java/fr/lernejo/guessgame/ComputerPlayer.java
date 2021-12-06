@@ -15,7 +15,7 @@ public class ComputerPlayer implements Player {
         SecureRandom random = new SecureRandom();
         long guess = random.nextLong(minLimit, maxLimit);
 
-        logger.log("Guessed " + guess);
+        logger.log("Trouvé " + guess);
 
         lastGuess = guess;
         return guess;
@@ -24,10 +24,10 @@ public class ComputerPlayer implements Player {
     @Override
     public void respond(boolean lowerOrGreater) {
         if (!lowerOrGreater) {
-            logger.log("The number is lower.");
+            logger.log("C'est moins ");
             maxLimit = lastGuess;
         } else {
-            logger.log("The number is higher.");
+            logger.log("C'est plus ");
             minLimit = lastGuess;
         }
     }
